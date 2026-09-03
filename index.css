@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800&display=swap');
+@import 'tailwindcss';
+
+@font-face {
+  font-family: 'Inter:Medium';
+  src: url('https://static.figma.com/font/Inter_1') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter:Regular';
+  src: url('https://static.figma.com/font/Inter_1') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter:Bold';
+  src: url('https://static.figma.com/font/Inter_1') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter:Semi Bold';
+  src: url('https://static.figma.com/font/Inter_1') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter:Semi_Bold';
+  src: url('https://static.figma.com/font/Inter_1') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter:Italic';
+  src: url('https://static.figma.com/font/Inter_1') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Montserrat:Bold';
+  src: url('https://static.figma.com/font/Montserrat_wght__2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Playfair Display:SemiBold';
+  src: url('https://static.figma.com/font/PlayfairDisplay_wght__1') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Playfair Display:Medium';
+  src: url('https://static.figma.com/font/PlayfairDisplay_wght__1') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Playfair Display:Regular';
+  src: url('https://static.figma.com/font/PlayfairDisplay_wght__1') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root {
+  --bg: #F8F6F2;
+  --ink: #110F0D;
+  --ink-2: rgba(17, 15, 13, 0.55);
+  --ink-3: rgba(17, 15, 13, 0.35);
+  --ink-4: rgba(17, 15, 13, 0.18);
+  --border: #E4E0D9;
+  --surface: #F0EDE7;
+  --accent: #B06535;
+  --accent-bg: #F5EBE3;
+  --nav-h: 84px;
+  --max-w: 1440px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+.wrap {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 82px;
+}
+
+@media (max-width: 1100px) {
+  .wrap { padding: 0 48px; }
+}
+
+@media (max-width: 768px) {
+  .wrap { padding: 0 24px; }
+}
+
+@media (max-width: 480px) {
+  .wrap { padding: 0 20px; }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.vis { opacity: 1; transform: none; }
+.d1 { transition-delay: 0.07s; }
+.d2 { transition-delay: 0.14s; }
+.d3 { transition-delay: 0.21s; }
+.d4 { transition-delay: 0.28s; }
+.d5 { transition-delay: 0.35s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ── Responsive helpers (extracted from component <style> tags) ── */
+
+@media (max-width: 740px) {
+  .fc-grid { grid-template-columns: 1fr !important; min-height: unset !important; }
+  .fc-visual { margin-top: 8px; }
+  .op-row { flex-direction: column !important; }
+  .op-col { border-left: none !important; border-top: 1px solid var(--border); }
+  .op-col:first-child { border-top: none; }
+}
+
+@media (max-width: 700px) {
+  .approach-grid { grid-template-columns: 1fr !important; }
+  .about-home-grid { grid-template-columns: 1fr !important; }
+  .about-intro-grid { grid-template-columns: 1fr !important; }
+}
+
+@media (max-width: 640px) {
+  .lc-panel { grid-template-columns: 1fr !important; }
+  .lc-panel svg { display: none; }
+}
+
+@media (max-width: 600px) {
+  .lc-grid { grid-template-columns: 1fr !important; }
+  .lc-grid svg { display: none; }
+  .cs-nav-row { flex-direction: column !important; }
+  .cs-nav-row > div:empty { display: none; }
+}
+
+/* ── Case study responsive helpers ── */
+@media (max-width: 700px) {
+  .cs-2col { grid-template-columns: 1fr !important; }
+  .cs-method-row { grid-template-columns: 1fr !important; }
+  .cs-journey-row { grid-template-columns: 1fr !important; }
+  .cs-journey-inner { grid-template-columns: 1fr !important; }
+  .cs-iter { grid-template-columns: 1fr !important; }
+  .cs-pdo { grid-template-columns: 1fr !important; }
+  .cs-decision { grid-template-columns: 1fr !important; }
+  .cs-roadmap-row { grid-template-columns: 1fr !important; }
+  .cs-flow-steps { flex-direction: column !important; }
+  .cs-flow-steps > div { border-radius: 10px !important; border-left: 1px solid var(--border) !important; border-top: none !important; }
+  /* Abraaj legacy aliases */
+  .abraaj-2col { grid-template-columns: 1fr !important; }
+  .abraaj-method-row { grid-template-columns: 1fr !important; }
+  .abraaj-journey-row { grid-template-columns: 1fr !important; }
+  .abraaj-journey-inner { grid-template-columns: 1fr !important; }
+  .abraaj-iter { grid-template-columns: 1fr !important; }
+  .abraaj-pdo { grid-template-columns: 1fr !important; }
+  .abraaj-decision { grid-template-columns: 1fr !important; }
+  .abraaj-roadmap-row { grid-template-columns: 1fr !important; }
+}
+
+/* ── Case study prev/next navigation ── */
+@media (max-width: 600px) {
+  .cs-nav-row { flex-direction: column !important; align-items: stretch !important; }
+  .cs-nav-row > div { justify-content: center !important; }
+  .cs-nav-row > div:empty { display: none !important; }
+}
+
+/* ── Prevent any horizontal overflow site-wide ── */
+* { box-sizing: border-box; }
+
+@media (max-width: 480px) {
+  /* Tighten hero on very small phones */
+  h1 { overflow-wrap: break-word; word-break: break-word; }
+}
+
+/* ── Mobile menu max height for very short screens ── */
+@media (max-height: 600px) and (max-width: 768px) {
+  .mobile-menu-inner { max-height: 70vh; overflow-y: auto; }
+}
